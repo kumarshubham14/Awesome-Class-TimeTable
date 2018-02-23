@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Class Countdown</title>
+    <style>
+      body {
+        background: #f6f6f6;
+      }
+
+      .countdownContainer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        text-align: center;
+        background: #ddd;
+        border: 1px solid #999;
+        padding: 10px;
+        box-shadow: 0 0 5px 3px #ccc;
+      }
+
+      .info{
+        font-size: 80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table class="countdownContainer">
+      <tr class="info">
+        <td colspan="5" id="nextClass">No class Left</td>
+      </tr>
+      <tr>
+        <td id="hours"></td>
+        <td></td>
+        <td id="minutes"></td>
+        <td></td>
+        <td id="seconds"></td>
+      </tr>
+      <tr style="font-size: 60px">
+        <td colspan="5">Today</td>
+      </tr>
+      <tr style="font-weight: bold">
+        <td>09:00 - 10:00</td>
+        <td>10:00 - 11:00</td>
+        <td>11:00 - 12:00</td>
+        <td>12:00 - 01:00</td>
+        <td>02:00 - 03:00</td>
+      </tr>
+      <tr>
+        <td id="nine"></td>
+        <td id="ten"></td>
+        <td id="eleven"></td>
+        <td id="twelve"></td>
+        <td id="two"></td>
+      </tr>
+    </table>
+
+    <script>
+
+      function countdown(){
+
+        // Time Table
+        var week = {
+          Mon: {
+            10: "MPMC(LSPR, CR6)",
+            11: "MATH-IV(RRP,CR6)",
+            12: "DBMS(DD, CR6)",
+            14: "DBMS Lab (DD, PL1)"
+          },
+          Tue: {
+            9: "OS(MP, CR5)",
+            10: "MATH IV(RRP,CR6)",
+            11: "POC(PS, CR6)",
+            14: "MP Lab(LSPR, PL3)"
+          },
+          Wed: {
+            9: "MPMC(LSPR, CR6)",
+            10: "OS(MP, CR5)",
+            11: "DBMS(DD, CR5)",
+            12: "POC(PS, CR5)"
+          },
+          Thu: {
+            9: "OS(MP, CR5)",
+            10: "MATH-IV(RRP, CR6)",
+            11: "POC(PS, CR6)"
+          },
+          Fri: {
+            9: "MATH-IV((RRP,CR5)",
+            10: "MPMC(LSPR,CR6)",
+            11: "DBMS(DD, CR6)",
+            19: "Test(XXX, CRX)"  // FIX ME
+          },
+          Sat: {
+            9: "DBMS(DD,CR5)",
+            10: "MPMC(LSPR,CR6)",
+            11: "OS(MP, CR6)",
+            14: "POC(PS,CR1)"
+          },
+          Sun: {}
+        }
+
+        var now = new Date();
+        var today = new Date().toUTCString().slice(0, 16);
+        var day = new Date().toString().slice(0,3);
+        var time = new Date().toString().slice(16,18);
+
+
+        var eventDate = Object.keys(week[day]);
+
+        for (var i in eventDate) {
+          if(parseInt(time) < parseInt(eventDate[i])) {
+            time = eventDate[i];
+            break;
+          }
+        }
+
+        // Convert class time strings to actual dates (doesn't work past midnight yet)
+        for(var i=0, l=eventDate.length; i<l; i++){
+          for (var x in eventDate) {
+            if(parseInt(eventDate[i])==9) {
+              eventDate[i] = "0" + eventDate[i];
+            }
+          }
+          eventDate[i] = new Date(today+" "+eventDate[i]+":00");
+        }
+
+
+        var currentTime = now.getTime();
+        for(var i=0, l=eventDate.length; i<l; i++){
+          eventTime = eventDate[i].getTime();
+          if(eventTime>currentTime) {
+            var remTime = eventTime - currentTime;
+            break;
+          }
+        }
+
+        var s = Math.floor(remTime/1000);
+        var m = Math.floor(s/60);
+        var h = Math.floor(m/60);
+        var d = Math.floor(h/24);
+
+        h %= 24;
+        m %= 60;
+        s %= 60;
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+
+        if(week[day][time] != undefined) {
+          document.getElementById("hours").textContent = h + " Hours";
+          document.getElementById("minutes").textContent = m + " Minutes";
+          document.getElementById("seconds").textContent = s + " Seconds";
+          document.getElementById("nextClass").textContent = week[day][time];
+        }
+
+
+        classId = ["nine", "ten", "eleven", "twelve", "two"];
+        var key = 9;
+        for (var x in classId) {
+          if(week[day][key] != undefined) {
+            document.getElementById(classId[x]).textContent = week[day][String(key)];
+          } else {
+            document.getElementById(classId[x]).textContent = "No Class, Yay!"
+          }
+          if(key !=12) {
+            key += 1;
+          } else {
+            key +=2;
+          }
+        }
+
+
+        // Display today classes
+//        document.getElementById("nine").textContent = week[day]["9"];
+//        document.getElementById("ten").textContent = week[day]["10"];
+//        document.getElementById("eleven").textContent = week[day]["11"];
+//        document.getElementById("twelve").textContent = week[day]["12"];
+//        document.getElementById("two").textContent = week[day]["14"];
+
+        setTimeout(countdown, 1000);
+      }
+
+      countdown();
+
+    </script>
+  </body>
+</html>
