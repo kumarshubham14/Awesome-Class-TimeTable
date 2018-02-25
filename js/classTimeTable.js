@@ -40,7 +40,7 @@ function countdown(){
   }
 
   var now = new Date();
-  var today = new Date().toUTCString().slice(0, 16);
+  var today = new Date().toString().slice(0, 16);
   var day = new Date().toString().slice(0,3);
   var time = new Date().toString().slice(16,18);
 
