@@ -6,7 +6,7 @@ function countdown(){
       10: "MPMC(LSPR, CR6)",
       11: "MATH-IV(RRP,CR6)",
       12: "DBMS(DD, CR6)",
-      14: "DBMS Lab (DD, PL1)"
+      15: "DBMS Lab (DD, PL1)"
     },
     Tue: {
       9: "OS(MP, CR5)",
