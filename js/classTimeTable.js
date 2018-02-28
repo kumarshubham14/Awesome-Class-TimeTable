@@ -4,37 +4,40 @@ function countdown(){
   var week = {
     Mon: {
       9: "AI(SJ, CR5)",
-      11: "MATH-IV(RRP,CR6)",
+      10: "OT(RKP, CR4)"
+      11: "S&M(SJ, CR5)",
       12: "DBMS(DD, CR6)",
-      15: "Seminar"
+      13: "BF(SD, CR4)"
     },
     Tue: {
-      9: "OS(MP, CR5)",
-      10: "MATH IV(RRP,CR6)",
-      11: "POC(PS, CR6)",
-      14: "MP Lab(LSPR, PL3)"
+      9: "OT(RKP, CR4)",
+      10: "S&M(SJ, CR5)",
+      12: "WT(SRP, CR4)",
+      14: "BF(SD, CR4)"
     },
     Wed: {
-      9: "MPMC(LSPR, CR6)",
-      10: "OS(MP, CR5)",
+      9: "WT(SRP, CR4)",
+      10: "AI(SJ, CR4)",
       11: "DBMS(DD, CR5)",
-      12: "POC(PS, CR5)"
+      12: "WEB TECH. LAB(SRP, PL1)"
     },
     Thu: {
-      9: "OS(MP, CR5)",
-      10: "MATH-IV(RRP, CR6)",
-      11: "POC(PS, CR6)"
+      9: "S&M(SJ, CR6)",
+      10: "OT(RKP, CR4)",
+      11: "WT(SRP, CR4)"
+      12: "AI(SJ, CR4)",
+      14: "BF(SD, CR11)",
+      15: "Seminar(Sushree, CR2)"
     },
     Fri: {
-      9: "MATH-IV(RRP,CR5)",
-      10: "MPMC(LSPR,CR6)",
-      11: "DBMS(DD, CR6)"
+      10: "OT(RKP, CR5)",
+      11: "S&M(SJ, CR5)",
+      12: "WT(SRP,CR4)",
+      14: "BF(SD,CR11)"
     },
     Sat: {
-      9: "DBMS(DD,CR5)",
-      10: "MPMC(LSPR,CR6)",
-      11: "OS(MP, CR6)",
-      14: "POC(PS,CR1)"
+      10: "AI(SJ,CR4)",
+      14: "NETWORK PROGRAMMING LAB(KD, PL3)"
     },
     Sun: {}
   }
