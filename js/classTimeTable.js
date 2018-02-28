@@ -6,8 +6,7 @@ function countdown(){
       9: "AI(SJ, CR5)",
       10: "OT(RKP, CR4)"
       11: "S&M(SJ, CR5)",
-      12: "DBMS(DD, CR6)",
-      13: "BF(SD, CR4)"
+      14: "BF(SD, CR4)"
     },
     Tue: {
       9: "OT(RKP, CR4)",
@@ -18,7 +17,6 @@ function countdown(){
     Wed: {
       9: "WT(SRP, CR4)",
       10: "AI(SJ, CR4)",
-      11: "DBMS(DD, CR5)",
       12: "WEB TECH. LAB(SRP, PL1)"
     },
     Thu: {
