@@ -4,9 +4,8 @@ function countdown(){
   var week = {
     Mon: {
       9: "AI(SJ, CR5)",
-      10: "OT(RKP, CR4)",
+      10: "OT(RKP, CR5)",
       11: "S&M(SJ, CR5)",
-      14: "BF(SD, CR4)",
       15: "Seminar(Sushree, CR2)"
     },
     Tue: {
